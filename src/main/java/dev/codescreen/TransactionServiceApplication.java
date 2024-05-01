@@ -16,8 +16,10 @@ public class TransactionServiceApplication {
     }
 
     // Endpoint to handle the load request
+    //@PutMapping("/load")
+    //public ResponseEntity<>(@RequestBody LoadRequest loadRequest) {
     @PutMapping("/load")
-    public ResponseEntity<>(@RequestBody LoadRequest loadRequest) {
+    public ResponseEntity<LoadResponse> handleLoadRequest(@RequestBody LoadRequest loadRequest) {
         // Simulate processing the load request and updating the user's balance
         // In a real application, you would perform the necessary business logic here
         double newBalance = loadRequest.getAmount().getDebitOrCredit().equals("CREDIT") ?
@@ -32,8 +34,10 @@ public class TransactionServiceApplication {
     }
 
     // Endpoint to handle the authorization request
+    //@PutMapping("/authorization")
+    //public ResponseEntity<>(@RequestBody AuthorizationRequest authorizationRequest) {
     @PutMapping("/authorization")
-    public ResponseEntity<>(@RequestBody AuthorizationRequest authorizationRequest) {
+    public ResponseEntity<LoadResponse> handleLoadRequest(@RequestBody AuthorizationRequest authorizationRequest) {
         // Simulate processing the authorization request and checking the user's balance
         // In a real application, you would perform the necessary business logic here
         String responseCode = "APPROVED"; // For simplicity, always approve the authorization
